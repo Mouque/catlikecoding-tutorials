@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Mathf;
 
 public class Graph : MonoBehaviour
 {
@@ -10,6 +11,13 @@ public class Graph : MonoBehaviour
     int resolution = 10;
 
     Transform[] points;
+
+    public static class FunctionLibrary {
+        public static float Wave(float x, float t) {
+            return Sin(PI * (x + t));
+        }
+    }
+
     void Awake()
     {
         float step = 2f / resolution;
@@ -29,11 +37,12 @@ public class Graph : MonoBehaviour
     }
 
     void Update() {
+    float time = Time.time;
         for (int i = 0; i < points.Length; i++)
         {
             Transform point = points[i];
             Vector3 position = point.localPosition;
-            position.y = Mathf.Sin(Mathf.PI * (position.x + Time.time));
+            position.y = FunctionLibrary.Wave(position.x, time);
             point.localPosition = position;
         }
     }
