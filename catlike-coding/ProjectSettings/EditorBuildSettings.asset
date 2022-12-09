@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MathSurfaces.unity
+    guid: faf9dbbe25adfc64a861d684b5ac86e5
   m_configObjects: {}
